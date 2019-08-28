@@ -4,6 +4,7 @@
 
    <div class="main">
      <!-- <countries-list :countries='countries'></countries-list> -->
+    <country-search :countries="countries"></country-search>
     <country-select :countries="countries"></country-select>
     <country-detail v-if="selectedCountry" :country="selectedCountry"></country-detail>
 
@@ -13,10 +14,13 @@
 </template>
 
 <script>
+import CountrySearch from './components/CountrySearch.vue'
 import CountryDetail from './components/CountryDetail.vue';
 // import CountriesList from './components/CountriesList.vue';
 import CountrySelect from './components/CountrySelect.vue';
+
 import {eventBus} from './main.js';
+
 export default {
   name: 'app',
   data(){
@@ -37,7 +41,8 @@ export default {
    },
    components: {
      "country-select": CountrySelect,
-     "country-detail": CountryDetail
+     "country-detail": CountryDetail,
+     'country-search': CountrySearch
    }
 }
 
@@ -45,7 +50,5 @@ export default {
 
 <style lang="css" scoped>
   .main {
-    display: flex;
-    justify-content: space-between;
   }
 </style>
