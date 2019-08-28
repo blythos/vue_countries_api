@@ -3,7 +3,7 @@
   <h3>Country: {{country.name}}</h3>
   <p>Population: {{country.population}}</p>
   <p>Capital: {{country.capital}}</p>
-  <p><img :src="country.flag" class="flag-image"></p>
+  <p><img :src="country.flag" class="flag-image-medium"></p>
   <p>Languages spoken:</p>
   <ul>
     <li v-for="(language, index) in country.languages" :key="index">{{language.name}}</li>
@@ -21,7 +21,10 @@ export default {
 </script>
 
 <style lang="css" scoped>
-.flag-image {
-  width: 100px;
+.flag-image-medium {
+  width: 400px;
+}
+.flag-image-small {
+  width: 50px;
 }
 </style>
