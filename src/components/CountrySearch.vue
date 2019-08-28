@@ -1,7 +1,7 @@
 <template lang="html">
   <div>
     <label for="country-search">Search for a country: </label>
-    <input id="country-search" @change="onInput" type="text" v-model="countryName">
+    <input id="country-search" @input="onInput" type="text" v-model="countryName">
   </div>
 </template>
 
@@ -18,7 +18,7 @@ export default {
   methods: {
     onInput() {
       for (let country of this.countries) {
-        if (this.countryName === country.name) {
+        if (country.name.indexOf(this.countryName) > -1) {
           return eventBus.$emit('country-selected', country)
         }
       }
